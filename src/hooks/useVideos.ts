@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { supabase, Video } from '../lib/supabase';
+import { videos as staticVideos, Video } from '../data/videos';
 
 interface UseVideosResult {
   videos: Video[];
@@ -15,37 +15,30 @@ export const useVideos = (selectedCategory?: string): UseVideosResult => {
   const [categoryCounts, setCategoryCounts] = useState<Record<string, number>>({});
 
   useEffect(() => {
-    const fetchVideos = async () => {
+    const fetchVideos = () => {
       try {
         setLoading(true);
         setError(null);
 
-        let query = supabase
-          .from('videos')
-          .select('*')
-          .order('order_index', { ascending: true });
+        let filteredVideos = staticVideos;
 
         if (selectedCategory && selectedCategory !== 'All') {
-          query = query.eq('category', selectedCategory);
+          filteredVideos = staticVideos.filter(
+            video => video.category === selectedCategory
+          );
         }
 
-        const { data, error: fetchError } = await query;
+        filteredVideos = [...filteredVideos].sort(
+          (a, b) => a.order_index - b.order_index
+        );
 
-        if (fetchError) throw fetchError;
+        setVideos(filteredVideos);
 
-        setVideos(data || []);
-
-        const { data: allVideos } = await supabase
-          .from('videos')
-          .select('category');
-
-        if (allVideos) {
-          const counts: Record<string, number> = { 'All': allVideos.length };
-          allVideos.forEach((video) => {
-            counts[video.category] = (counts[video.category] || 0) + 1;
-          });
-          setCategoryCounts(counts);
-        }
+        const counts: Record<string, number> = { 'All': staticVideos.length };
+        staticVideos.forEach((video) => {
+          counts[video.category] = (counts[video.category] || 0) + 1;
+        });
+        setCategoryCounts(counts);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to fetch videos');
         console.error('Error fetching videos:', err);
