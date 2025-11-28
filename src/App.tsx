@@ -602,7 +602,7 @@ function App() {
             </div>
 
             {/* Contact Information */}
-            <div>
+            <div className="bg-slate-50 p-8 rounded-xl">
               <h3 className="text-xl font-bold text-slate-900 mb-6">Get In Touch</h3>
               <div className="space-y-6 mb-8">
                 <div className="flex items-start">
