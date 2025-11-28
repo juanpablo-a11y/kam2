@@ -46,21 +46,12 @@ export const videos: Video[] = [
     created_at: new Date().toISOString()
   },
   {
-    id: '5',
-    title: 'Operator Insights',
-    description: 'Discover what operators appreciate about the TourHero platform',
-    embed_url: 'https://www.loom.com/embed/3950eb93076b48a6b62ef041fdd615f2?sid=decfb806-473c-4046-ba02-71ea6494d4c7',
-    category: 'Testimonial',
-    order_index: 5,
-    created_at: new Date().toISOString()
-  },
-  {
     id: '6',
     title: 'Community Feedback',
     description: 'Real experiences from members of the TourHero community',
     embed_url: 'https://www.loom.com/embed/475600e7b6aa4d5baf7a847f15d1da75?sid=3164cb65-cd4d-4e69-896c-3731a85eb4cd',
     category: 'Testimonial',
-    order_index: 6,
+    order_index: 5,
     created_at: new Date().toISOString()
   },
   {
@@ -69,7 +60,7 @@ export const videos: Video[] = [
     description: 'Learn more about TourHero',
     embed_url: 'https://www.loom.com/embed/b6f879a9c2d140d6899f5901e6de3e59',
     category: 'Testimonial',
-    order_index: 7,
+    order_index: 6,
     created_at: new Date().toISOString()
   }
 ];
