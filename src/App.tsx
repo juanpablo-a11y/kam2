@@ -96,8 +96,8 @@ function App() {
               <Star className="w-4 h-4 mr-2" />
               Founded in 2020 • 4+ Years of Operation • 80+ Destinations
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
-              We're not just another marketplace,
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+              <span style={{ color: '#112039' }}>We're not just another marketplace,</span>
               <span className="text-tourhero-red"> we're your partner in growth!</span>
             </h1>
             <p className="text-xl text-slate-600 mb-8 leading-relaxed">
