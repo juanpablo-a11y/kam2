@@ -220,7 +220,7 @@ const FullFaqPage: React.FC<FullFaqPageProps> = ({ onBackToHomepage, onShowVideo
           )}
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Frequently Asked Questions
+              <span style={{ color: '#112039' }}>Frequently asked</span> <span className="text-tourhero-red">questions</span>
             </h1>
             <p className="text-xl opacity-90 max-w-3xl mx-auto">
               Comprehensive guide to partnering with TourHero

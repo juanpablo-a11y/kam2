@@ -65,8 +65,8 @@ const HomepageFaq: React.FC<HomepageFaqProps> = ({ onViewAllFaqs, onShowVideos }
     <section className="py-20 bg-slate-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
-            Frequently Asked Questions
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <span style={{ color: '#112039' }}>Frequently asked</span> <span className="text-tourhero-red">questions</span>
           </h2>
           <p className="text-xl text-text-secondary">
             Everything you need to know about partnering with TourHero
