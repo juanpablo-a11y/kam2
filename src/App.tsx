@@ -606,20 +606,6 @@ function App() {
               <h3 className="text-xl font-bold text-slate-900 mb-6">Get In Touch</h3>
               <div className="space-y-6 mb-8">
                 <div className="flex items-start">
-                  <MapPin className="w-5 h-5 text-tourhero-navy mt-1 mr-3" />
-                  <div>
-                    <h4 className="font-semibold text-slate-900">Americas/Asia Region</h4>
-                    <p className="text-slate-600">Regional Team Contact</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <MapPin className="w-5 h-5 text-tourhero-navy mt-1 mr-3" />
-                  <div>
-                    <h4 className="font-semibold text-slate-900">US/Europe/Africa/Oceania</h4>
-                    <p className="text-slate-600">Regional Team Contact</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
                   <Mail className="w-5 h-5 text-tourhero-red mt-1 mr-3" />
                   <div>
                     <h4 className="font-semibold text-slate-900">General Inquiries</h4>
