@@ -40,7 +40,7 @@ export default {
         hover: '#f3f4f6',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Gilroy', 'Inter', 'system-ui', 'sans-serif'],
       },
     },
   },
