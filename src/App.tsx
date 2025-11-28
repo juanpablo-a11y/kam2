@@ -275,8 +275,8 @@ function App() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-tourhero-red mb-4">
-              Our Operational Pillars
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <span style={{ color: '#112039' }}>Our Operational</span> <span className="text-tourhero-red">Pillars</span>
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               The strategic foundation that powers sustainable growth and exceptional partnerships
