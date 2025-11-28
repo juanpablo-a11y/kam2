@@ -62,5 +62,14 @@ export const videos: Video[] = [
     category: 'Testimonial',
     order_index: 6,
     created_at: new Date().toISOString()
+  },
+  {
+    id: '7',
+    title: 'TourHero Video',
+    description: 'Learn more about TourHero',
+    embed_url: 'https://www.loom.com/embed/b6f879a9c2d140d6899f5901e6de3e59',
+    category: 'Platform Overview',
+    order_index: 7,
+    created_at: new Date().toISOString()
   }
 ];
