@@ -336,7 +336,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span style={{ color: '#112039' }}>Getting Started</span> <span className="text-tourhero-red">is simple</span>
+              <span style={{ color: '#112039' }}>getting started</span> <span className="text-tourhero-red">is simple</span>
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               Five simple steps from application to receiving your first bookings
