@@ -624,6 +624,8 @@ function App() {
                   <div>
                     <h4 className="font-semibold text-slate-900">General Inquiries</h4>
                     <p className="text-slate-600">operators@tourhero.com</p>
+                    <p className="text-slate-600">1-347-801-8289</p>
+                    <p className="text-slate-600">28-07 Jackson Avenue, Long Island City, NY 11101, USA</p>
                   </div>
                 </div>
               </div>
