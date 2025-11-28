@@ -570,8 +570,8 @@ function App() {
       <section id="contact" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Ready to Partner With Us?
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <span style={{ color: '#112039' }}>Ready to partner</span> <span className="text-tourhero-red">with us</span>
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               Join our operator waitlist and let's discuss how we can help grow your business
