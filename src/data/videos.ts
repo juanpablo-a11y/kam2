@@ -62,5 +62,14 @@ export const videos: Video[] = [
     category: 'Testimonial',
     order_index: 6,
     created_at: new Date().toISOString()
+  },
+  {
+    id: '8',
+    title: 'Platform Features',
+    description: 'Explore the key features and capabilities of the TourHero platform',
+    embed_url: 'https://www.loom.com/embed/1d6943ad999c4f2ca9fcae5aee0d81aa',
+    category: 'Platform Overview',
+    order_index: 7,
+    created_at: new Date().toISOString()
   }
 ];
