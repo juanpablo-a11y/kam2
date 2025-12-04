@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FaqRouter from './components/FaqRouter';
 import StepByStepModal from './components/StepByStepModal';
 import VideoLibraryModal from './components/VideoLibraryModal';
+import PlatformOverviewCarousel from './components/PlatformOverviewCarousel';
 import {
   Users,
   Globe,
@@ -190,7 +191,7 @@ function App() {
         </div>
       </section>
 
-      {/* Loom Video Section */}
+      {/* Platform Overview Carousel Section */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -201,18 +202,8 @@ function App() {
               Watch how our platform connects operators with travelers through our unique ecosystem
             </p>
           </div>
-          
-          <div className="relative w-full max-w-4xl mx-auto">
-            <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-xl shadow-lg">
-              <iframe
-                src="https://www.loom.com/embed/976f7b580fa6406bbfbfe99c6818337e?sid=684ba27c-9b37-40a8-96d4-52d83f46b223"
-                frameBorder="0"
-                allowFullScreen
-                className="absolute top-0 left-0 w-full h-full"
-                title="TourHero Platform Overview"
-              ></iframe>
-            </div>
-          </div>
+
+          <PlatformOverviewCarousel />
         </div>
       </section>
 
