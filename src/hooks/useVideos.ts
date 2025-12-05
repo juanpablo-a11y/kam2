@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { videos as staticVideos, Video } from '../data/videos';
+import { Video } from '../data/videos';
+import { supabase } from '../lib/supabase';
 
 interface UseVideosResult {
   videos: Video[];
@@ -15,30 +16,41 @@ export const useVideos = (selectedCategory?: string): UseVideosResult => {
   const [categoryCounts, setCategoryCounts] = useState<Record<string, number>>({});
 
   useEffect(() => {
-    const fetchVideos = () => {
+    const fetchVideos = async () => {
       try {
         setLoading(true);
         setError(null);
 
-        let filteredVideos = staticVideos;
+        let query = supabase
+          .from('videos')
+          .select('*')
+          .order('order_index', { ascending: true });
 
         if (selectedCategory && selectedCategory !== 'All') {
-          filteredVideos = staticVideos.filter(
-            video => video.category === selectedCategory
-          );
+          query = query.eq('category', selectedCategory);
         }
 
-        filteredVideos = [...filteredVideos].sort(
-          (a, b) => a.order_index - b.order_index
-        );
+        const { data, error: fetchError } = await query;
 
-        setVideos(filteredVideos);
+        if (fetchError) {
+          throw fetchError;
+        }
 
-        const counts: Record<string, number> = { 'All': staticVideos.length };
-        staticVideos.forEach((video) => {
-          counts[video.category] = (counts[video.category] || 0) + 1;
-        });
+        const allVideosQuery = await supabase
+          .from('videos')
+          .select('category');
+
+        const counts: Record<string, number> = { 'All': data?.length || 0 };
+
+        if (allVideosQuery.data) {
+          counts['All'] = allVideosQuery.data.length;
+          allVideosQuery.data.forEach((video) => {
+            counts[video.category] = (counts[video.category] || 0) + 1;
+          });
+        }
+
         setCategoryCounts(counts);
+        setVideos(data || []);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to fetch videos');
         console.error('Error fetching videos:', err);
