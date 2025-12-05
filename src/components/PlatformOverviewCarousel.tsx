@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useVideos } from '../hooks/useVideos';
 
@@ -6,6 +6,7 @@ const PlatformOverviewCarousel: React.FC = () => {
   const { videos } = useVideos('Platform Overview');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   const goToNext = () => {
     setCurrentIndex((prevIndex) =>
@@ -33,6 +34,12 @@ const PlatformOverviewCarousel: React.FC = () => {
     return () => clearInterval(interval);
   }, [isAutoPlaying, videos.length, currentIndex]);
 
+  useEffect(() => {
+    if (iframeRef.current && videos.length > 0) {
+      iframeRef.current.src = videos[currentIndex].embed_url;
+    }
+  }, [currentIndex, videos]);
+
   if (videos.length === 0) {
     return null;
   }
@@ -47,7 +54,7 @@ const PlatformOverviewCarousel: React.FC = () => {
     >
       <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-xl shadow-lg">
         <iframe
-          key={currentVideo.id}
+          ref={iframeRef}
           src={currentVideo.embed_url}
           frameBorder="0"
           allowFullScreen
