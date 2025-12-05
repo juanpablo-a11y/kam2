@@ -36,7 +36,34 @@ const PlatformOverviewCarousel: React.FC = () => {
 
   useEffect(() => {
     if (iframeRef.current && videos.length > 0) {
+      const scrollX = window.scrollX;
+      const scrollY = window.scrollY;
+      let scrollLockTimer: NodeJS.Timeout;
+
+      const restoreScroll = () => {
+        window.scrollTo(scrollX, scrollY);
+      };
+
       iframeRef.current.src = videos[currentIndex].embed_url;
+
+      const handleScroll = () => {
+        clearTimeout(scrollLockTimer);
+        scrollLockTimer = setTimeout(() => {
+          window.removeEventListener('scroll', handleScroll);
+        }, 100);
+        restoreScroll();
+      };
+
+      window.addEventListener('scroll', handleScroll, { passive: false });
+
+      requestAnimationFrame(restoreScroll);
+      setTimeout(restoreScroll, 50);
+      setTimeout(restoreScroll, 150);
+
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+        clearTimeout(scrollLockTimer);
+      };
     }
   }, [currentIndex, videos]);
 
